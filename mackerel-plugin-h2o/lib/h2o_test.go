@@ -94,6 +94,6 @@ func TestParse(t *testing.T) {
 	fmt.Println(stat)
 	assert.Nil(t, err)
 	assert.EqualValues(t, reflect.TypeOf(stat["status-errors.400"]).String(), "float64")
-	assert.EqualValues(t, reflect.TypeOf(stat["duration.99"]).String(), "float64")
-	assert.EqualValues(t, stat["duration.99"], 753367)
+	assert.EqualValues(t, reflect.TypeOf(stat["duration-99"]).String(), "float64")
+	assert.EqualValues(t, stat["duration-99"], 753367)
 }
