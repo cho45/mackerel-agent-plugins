@@ -92,6 +92,36 @@ func (p H2OPlugin) GraphDefinition() map[string]mp.Graphs {
 				{Name: "http2.write-closed", Label: "write-closed", Diff: false},
 			},
 		},
+		"connections": {
+			Label: (labelPrefix + " Connections"),
+			Unit: "integer",
+			Metrics: []mp.Metrics{
+				{Name: "connections", Label: "connections", Diff: false},
+				{Name: "max-connections", Label: "max-connections", Diff: false},
+			},
+		},
+		"uptime": {
+			Label: (labelPrefix + " Uptime"),
+			Unit: "integer",
+			Metrics: []mp.Metrics{
+				{Name: "uptime", Label: "uptime", Diff: false},
+				{Name: "generation", Label: "generation", Diff: false},
+			},
+		},
+		"listeners": {
+			Label: (labelPrefix + " Listeners"),
+			Unit: "integer",
+			Metrics: []mp.Metrics{
+				{Name: "listeners", Label: "listeners", Diff: false},
+			},
+		},
+		"num-sessions": {
+			Label: (labelPrefix + " Sessions"),
+			Unit: "integer",
+			Metrics: []mp.Metrics{
+				{Name: "num-sessions", Label: "num-sessions", Diff: false},
+			},
+		},
 	}
 
 	durations := map[string]mp.Graphs{
@@ -191,7 +221,7 @@ func (p H2OPlugin) MetricKeyPrefix() string {
 }
 
 func Do() {
-	optHost := flag.String("host", "localhost", "Hostname")
+	optHost := flag.String("host", "127.0.0.1", "Hostname")
 	optScheme := flag.String("scheme", "http", "Scheme")
 	optPort := flag.String("port", "80", "Port")
 	optPath := flag.String("path", "/server-status/json", "Path")
